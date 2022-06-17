@@ -1,0 +1,5 @@
+__pycache__/
+docs
+.env
+.venv
+*.sqlite3
