@@ -107,6 +107,7 @@ body {
 }
 
 .btn-signup {
+  border: none;
   background-color: #23BBBB;
   color: #fff;
 }
