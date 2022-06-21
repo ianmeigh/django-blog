@@ -45,12 +45,21 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
     "django_summernote",
     "blog",
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -82,6 +91,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "codestar.wsgi.application"
 
+
+# AllAuth Config
+# https://django-allauth.readthedocs.io/en/latest/configuration.html
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_PRESERVE_USERNAME_CASING = False
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
