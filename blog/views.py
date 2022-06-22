@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+from django.contrib import messages
 from .models import Post
 from .forms import CommentForm
 
@@ -29,7 +30,6 @@ class PostDetailView(View):
             {
                 "post": post,
                 "comments": comments,
-                "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
             },
@@ -56,13 +56,16 @@ class PostDetailView(View):
         else:
             comment_form = CommentForm()
 
+        messages.add_message(
+            request, messages.SUCCESS, "Your comment is awaiting approval."
+        )
+
         return render(
             request,
             "post_detail.html",
             {
                 "post": post,
                 "comments": comments,
-                "commented": True,
                 "liked": liked,
                 "comment_form": CommentForm(),
             },

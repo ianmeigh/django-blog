@@ -2,6 +2,17 @@ body {
   background-color: #F9FAFC;
 }
 
+#msg {
+  position: absolute;
+  width: 70%;
+  top: var(--message-padding, 65px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation-name: message;
+  animation-duration: 1s;
+}
+
 .brand {
   font-family: Lato, sans-serif;
   font-size: 1.4rem;
@@ -140,4 +151,13 @@ body {
   color: #E84610;
   background: transparent;
   border: none;
+}
+
+@keyframes message {
+  from {
+    top: -100px;
+  }
+  to {
+    top: var(--message-padding);
+  }
 }
