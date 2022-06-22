@@ -35,7 +35,7 @@ else:
     DEBUG = False
 
 
-ALLOWED_HOSTS = environ.get("ALLOWED_HOSTS", "127.0.0.1".split(","))
+ALLOWED_HOSTS = environ.get("ALLOWED_HOSTS", "127.0.0.1").split(",")
 
 
 # Application definition
