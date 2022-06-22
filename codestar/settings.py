@@ -64,6 +64,10 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
+# Allow summernote when deployed (CORS)
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -109,6 +113,9 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 CRISPY_ALLOWED_TEMPLATE_PACKS = ("bootstrap5",)
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+
+# Messages Config
+# https://docs.djangoproject.com/en/3.2/ref/contrib/messages/#using-messages-in-views-and-templates
 
 MESSAGE_TAGS = {
     messages.DEBUG: "alert-info",
