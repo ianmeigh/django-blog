@@ -3,11 +3,19 @@ from django.views import generic, View
 from django.contrib import messages
 from .models import Post
 from .forms import CommentForm
+from django.db.models import Count, Q
 
 
 class PostListView(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = (
+        Post.objects.filter(status=1)
+        .order_by("-created_on")
+        .filter(status=1)
+        .annotate(
+            num_comments=Count("comments", filter=Q(comments__approved=True))
+        )
+    )
     template_name = "index.html"
     paginate_by = 6
     context_object_name = "published_posts"
